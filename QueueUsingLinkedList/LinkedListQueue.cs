@@ -35,7 +35,7 @@ namespace QueueUsingLinkedList
             Console.WriteLine("{0} inserted into Queue", data);
         }
 
-        internal void Display()
+        public void Display()
         {
             Node temp = this.front;
 
@@ -52,6 +52,25 @@ namespace QueueUsingLinkedList
                 temp = temp.next;
             }
             Console.WriteLine();
+        }
+
+        public void Dequeue()
+        {
+            if (this.front == null)
+            {
+                Console.WriteLine("The Queue is empty");
+                return;
+            }
+
+            Node temp = this.front;
+            this.front = this.front.next;
+
+            if (this.front == null)
+            {
+                this.rear = null;
+            }
+
+            Console.WriteLine("Item deleted is {0}", temp.data);
         }
     }
 
